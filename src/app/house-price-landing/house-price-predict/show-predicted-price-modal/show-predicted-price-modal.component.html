@@ -1,0 +1,20 @@
+<div class="container-fluid">
+  <h1 mat-dialog-title>House Value</h1>
+  <div mat-dialog-content>
+    <table>
+      <tr> <td> Longitude: </td> <td> {{data.longitude}} </td> </tr>
+      <tr> <td> Latitude: </td> <td> {{data.latitude}} </td> </tr>
+      <tr> <td> Housing Median Age: </td> <td> {{data.housing_median_age}} </td> </tr>
+      <tr> <td> Total Rooms: </td> <td> {{data.total_rooms}} </td> </tr>
+      <tr> <td> Total Bedrooms: </td> <td> {{data.total_bedrooms}} </td> </tr>
+      <tr> <td> Population: </td> <td> {{data.population}} </td> </tr>
+      <tr> <td> Households: </td> <td> {{data.households}} </td> </tr>
+      <tr> <td> Median Income: </td> <td> {{data.median_income}} </td> </tr>
+      <tr> <td> Ocean Proximity: </td> <td> {{data.ocean_proximity}} </td> </tr>
+      <tr> <td> <b> Predicted Value </b> </td> <td> <b> {{data.predicted_value}} </b> </td> </tr>
+    </table>
+  </div>
+  <div mat-dialog-actions align="end">
+    <button mat-button (click)="close()" cdkFocusInitial>Ok</button>
+  </div>
+</div>

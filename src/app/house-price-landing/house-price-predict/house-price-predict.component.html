@@ -1,0 +1,121 @@
+<h2 class="mx-2">House Price Prediction</h2>
+
+<div class="container-fluid">
+  <form [formGroup]="housePricePredictionForm" (ngSubmit)="predictHouseValue()">
+    <div class="row">
+
+      <div class="col-2">
+        <mat-form-field>
+          <mat-label for="longitude">Longitude</mat-label>
+          <input matInput id="longitude" formControlName="longitude"/>
+        </mat-form-field>
+        <div *ngIf="formLongitude.invalid && (formLongitude.dirty || formLongitude.touched)">
+          <span *ngIf="formLongitude.errors?.['required']"> Longitude is required! </span>
+          <span *ngIf="formLongitude.errors?.['pattern']"> Longitude value is invalid! </span>
+        </div>
+      </div>
+
+      <div class="col-2">
+        <mat-form-field>
+          <mat-label for="latitude" class="form-label">Latitude</mat-label>
+          <input matInput id="latitude" formControlName="latitude"/>
+        </mat-form-field>
+        <div *ngIf="formLatitude.invalid && (formLatitude.dirty || formLatitude.touched)">
+          <span *ngIf="formLatitude.errors?.['required']"> Latitude is required! </span>
+          <span *ngIf="formLatitude.errors?.['pattern']"> Latitude value is invalid! </span>
+        </div>
+      </div>
+
+      <div class="col-2">
+        <mat-form-field>
+          <mat-label for="housing-median-age">Housing Median Age</mat-label>
+          <input matInput id="housing-median-age" formControlName="housingMedianAge"/>
+        </mat-form-field>
+        <div *ngIf="formHousingMedianAge.invalid && (formHousingMedianAge.dirty || formHousingMedianAge.touched)">
+          <span *ngIf="formHousingMedianAge.errors?.['required']"> Housing median age is required! </span>
+          <span *ngIf="formHousingMedianAge.errors?.['pattern']"> Housing median age value is invalid! </span>
+        </div>
+      </div>
+
+      <div class="col-2">
+        <mat-form-field>
+          <mat-label for="total-rooms">Total Rooms</mat-label>
+          <input matInput id="total-rooms" formControlName="totalRooms"/>
+        </mat-form-field>
+        <div *ngIf="formTotalRooms.invalid && (formTotalRooms.dirty || formTotalRooms.touched)">
+          <span *ngIf="formTotalRooms.errors?.['required']"> Total rooms is required! </span>
+          <span *ngIf="formTotalRooms.errors?.['pattern']"> Total rooms value is invalid! </span>
+        </div>
+      </div>
+
+      <div class="col-2">
+        <mat-form-field>
+          <mat-label for="total-bedrooms">Total Bedrooms</mat-label>
+          <input matInput id="total-bedrooms" formControlName="totalBedrooms"/>
+        </mat-form-field>
+        <div *ngIf="formTotalBedrooms.invalid && (formTotalBedrooms.dirty || formTotalBedrooms.touched)">
+          <span *ngIf="formTotalBedrooms.errors?.['required']"> Total bedrooms is required! </span>
+          <span *ngIf="formTotalBedrooms.errors?.['pattern']"> Total bedrooms value is invalid! </span>
+        </div>
+      </div>
+
+      <div class="col-2">
+        <mat-form-field>
+          <mat-label for="population">Population</mat-label>
+          <input matInput id="population" formControlName="population"/>
+        </mat-form-field>
+        <div *ngIf="formPopulation.invalid && (formPopulation.dirty || formPopulation.touched)">
+          <span *ngIf="formPopulation.errors?.['required']"> Population is required! </span>
+          <span *ngIf="formPopulation.errors?.['pattern']"> Population value is invalid! </span>
+        </div>
+      </div>
+
+      <div class="col-2">
+        <mat-form-field>
+          <mat-label for="households">Households</mat-label>
+          <input matInput id="households" formControlName="households"/>
+        </mat-form-field>
+        <div *ngIf="formHouseholds.invalid && (formHouseholds.dirty || formHouseholds.touched)">
+          <span *ngIf="formHouseholds.errors?.['required']"> Households is required! </span>
+          <span *ngIf="formHouseholds.errors?.['pattern']"> Households value is invalid! </span>
+        </div>
+      </div>
+
+      <div class="col-2">
+        <mat-form-field>
+          <mat-label for="median-income">Median Income</mat-label>
+          <input matInput id="median-income" formControlName="medianIncome"/>
+        </mat-form-field>
+        <div *ngIf="formMedianIncome.invalid && (formMedianIncome.dirty || formMedianIncome.touched)">
+          <span *ngIf="formMedianIncome.errors?.['required']"> Median income is required! </span>
+          <span *ngIf="formMedianIncome.errors?.['pattern']"> Median income value is invalid! </span>
+        </div>
+      </div>
+
+      <div class="col-2">
+        <mat-form-field>
+          <mat-label for="ocean-proximity">Ocean Proximity</mat-label>
+          <mat-select id="ocean-proximity" formControlName="oceanProximity">
+            <mat-option *ngFor="let oceanProximity of oceanProximityValues" [value]="oceanProximity">
+              {{oceanProximity}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div *ngIf="formOceanProximity.invalid && (formOceanProximity.dirty || formOceanProximity.touched)">
+          <span *ngIf="formOceanProximity.errors?.['required']"> Ocean proximity is required! </span>
+          <span *ngIf="formOceanProximity.errors?.['pattern']"> Ocean proximity value is invalid! </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row pe-3 py-3 float-end">
+      <div class="col">
+        <button class="mx-2" mat-stroked-button type="reset">Reset</button>
+        <button class="mx-2" mat-stroked-button type="submit" color="primary"
+                disabled="{{!housePricePredictionForm.valid}}">Predict
+        </button>
+      </div>
+    </div>
+
+  </form>
+</div>
